@@ -1,0 +1,60 @@
+
+
+--haskell me lembra husky com pascal
+
+
+-- funcao que pega um numero inteiro e devolve o dobro deste inteiro
+dobro n = n * 2
+
+-----------------------------------------------------------------------
+
+-- funcao do sorvetao
+
+muv :: (Double,Double,Double,Double) -> Double
+muv (s,v,a,t) = (s + (v * t)) + ((a * (t ^ 2)) / 2)
+
+
+-- Usando uma curried function para descrever a funcao!
+
+muv1 :: Double -> Double -> Double -> Double -> Double
+muv1 s v a t = (s + (v * t)) + ((a * (t ^ 2)) / 2)
+
+-- calcula o numero de elementos de uma lista!
+
+comprimento :: [a] -> Int
+comprimento [] = 0
+comprimento l = (comprimento (tail l) ) + 1
+
+-- fatorial estranho
+
+fatorial :: Integer -> Integer
+fatorial n | n == 0 = 1
+           | otherwise =  n * fatorial (n-1)
+
+--soma elementos de uma LISTA
+
+somal :: [Int] -> Int
+somal [] = 0
+somal [x] = x
+somal l = (head l) + somal (tail l)
+
+-- calcula juros compostos - BETA
+{-
+cb :: Integer -> Integer -> Double -> Integer -> Double -> Double
+cb a b c d e | c < 12 = ((fromIntegral a) * ( 1 * (fromIntegral b)) ^ c)
+             | c >= 12 = ((fromIntegral a) * ( 1 * (fromIntegral b)) ^ c) * ((c / 12) * (fromIntegral d)) * ((c / 12) * (fromIntegral e))
+             | otherwise = 1
+
+-}
+-----------------------------------------------------------------------
+
+-- PRIMEIRO EXERCICIO DA LISTA MAGICA DE HASKELL
+
+eft :: Int -> Int -> [Int]
+eft x y | x == y = [x]
+        | x < y = x: eft (x+1) y
+        |otherwise = []
+
+-- SEGUNDO EXERCICIO DA LISTA MAGICA DE haskell
+
+
